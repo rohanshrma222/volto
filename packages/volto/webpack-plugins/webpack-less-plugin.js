@@ -136,15 +136,16 @@ module.exports = (userOptions = {}) => ({
       ...config.module.rules,
       {
         test: /\.less$/,
-        include: [
-          path.resolve('./theme'),
-          path.resolve('./src'),
-          /node_modules\/@plone\/volto\/theme/,
-          /packages\/volto\/theme/,
-          /plone\.volto\/theme/,
-          /node_modules\/semantic-ui-less/,
-          ...Object.values(registry.getResolveAliases()),
-        ],
+        // include: [
+        //   path.resolve('./theme'),
+        //   path.resolve('./src'),
+        //   /node_modules\/@plone\/volto\/theme/,
+        //   /packages\/volto\/theme/,
+        //   /plone\.volto\/theme/,
+        //   /node_modules\/semantic-ui-less/,
+        //   /\.pnpm\/semantic-ui-less/,
+        //   ...Object.values(registry.getResolveAliases()),
+        // ],
         use: isServer
           ? [
               {

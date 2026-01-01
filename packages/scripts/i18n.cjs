@@ -76,7 +76,7 @@ function getMessages() {
         (filename) =>
           map(JSON.parse(fs.readFileSync(filename, 'utf8')), (message) => ({
             ...message,
-            filename: filename.match(/build\/messages\/src\/(.*).json$/)[1],
+            filename: filename.replace(/\\/g,'/').match(/build\/messages\/src\/(.*).json$/)[1],
           })),
       ),
     ),
@@ -179,7 +179,7 @@ function poToJson({ registry, addonMode }) {
     const projectLocalesItems = Pofile.parse(
       fs.readFileSync(filename, 'utf8'),
     ).items;
-    const lang = filename.match(/locales\/(.*)\/LC_MESSAGES\//)[1];
+    const lang = filename.replace(/\\/g,'/').match(/locales\/(.*)\/LC_MESSAGES\//)[1];
     const result = {};
 
     // Merge volto core locales
@@ -234,7 +234,7 @@ function formatHeader(comments, headers) {
     'msgid ""',
     'msgstr ""',
     ...map(keys(headers), (key) => `"${key}: ${headers[key]}\\n"`),
-    '',
+ '',
   ].join('\n');
 }
 

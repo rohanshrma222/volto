@@ -85,5 +85,9 @@
     "release": "release-it",
     "release-major-alpha": "release-it major --preRelease=alpha",
     "release-alpha": "release-it --preRelease=alpha"
+  },
+  "devDependencies": {
+    "less": "3.11.1",
+    "less-loader": "11.1.0"
   }
 }
